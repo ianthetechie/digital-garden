@@ -5,6 +5,8 @@ title: Ian's Corner of the Web
 Welcome to my site.
 I occasionally post things here.
 
+[tags](tags)
+
 # About me
 
 Most people know me as a programmer.
