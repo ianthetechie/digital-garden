@@ -27,7 +27,7 @@ and the international participation was significantly better than I had expected
 
 # The challenge of multi-lingual events
 
-Surprisingly, most of the (30+) event staff also spoke English well (that’s a first for a Korean conference).
+Surprisingly, most of the (30+) event staff also spoke English very well (that’s a first for a Korean conference that I’ve been to).
 I think the organizers did an excellent job in not only attracting an international audience
 ([one speaker](https://nerdyak.tech/) flew in from Czechia!),
 but also making them feel welcome.
@@ -96,16 +96,19 @@ and Discord (which I had a hard time navigating).
 Together with a Danish friend I met at the iOS meetup a few days prior,
 I suggested we wing it and just follow the crowd outside to see where we ended up 🤣
 
-Eventually, we ended up taking a few turns following the group in front of us,
+We ended up taking a few turns following the group in front of us,
 and eventually I asked them if they would be cool with us crashing their party.
-They were, and so we ended up at a crowded Donkatsu buffet a few minutes later.
+We ended up at a crowded Donkatsu buffet a few minutes later.
 Both were iOS engineers, one working at Hyundai AutoEver,
-and another at [오늘의집](https://www.bucketplace.com/en/).
-They invited us to check out the networking area in-between sessions, which I did later.
+and another at [오늘의집](https://www.bucketplace.com/en/),
+and we had a great conversation over lunch!
+(They even bought us coffee; so friendly!)
 
-The networking area was a bit hard to find, since it was in a narrow hall,
+One of them mentioned that we should check out the networking area in-between sessions, which I did later.
+It was a bit hard to find, since it was in a narrow hall,
 after you passed through a cafe on another floor.
-I think this could have been announced a bit better.
+I think this could have been announced a bit better,
+since not many people used it, but the conversations I had there were great!
 
 Aside: another cool thing that I haven’t seen done elsewhere is round-table Q&A.
 Along with the session times, each speaker was available for Q&A around (literally)
