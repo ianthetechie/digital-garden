@@ -46,13 +46,15 @@ The speakers I talked with said they had to provide a script in advance,
 which we speculate were used to improve the quality of the translations
 (which were still live, even when the presenter went “off script”).
 The model still mis-recognized some technical terms on occasion,
-but these are acceptable hiccups.
+but the hiccups were to be expected.
 Overall, the quality of the translation was excellent,
-and I think this will be the future of live translation.
+and I think this will be the future of such events!
 I’ve been at half a dozen events where they give you a radio receiver
-and an earpiece for live translation.
-This is almost always a flop for many reasons,
-and I have to say the text on screen approach was preferred by everyone I talked to.
+and an earpiece, and it is never a great experience.
+Everyone I talked with said they liked the
+text on screen approach was better too
+(especially since it was alongside the slides,
+which were honestly Apple quality at every single talk I saw!).
 
 ![View of the stage during a talk about Swift 6, showing the screen with live translation next to the slides](images/IMG_8818.jpeg)
 
