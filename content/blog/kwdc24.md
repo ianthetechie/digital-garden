@@ -35,11 +35,12 @@ Hats off to the organizing team for that!
 This makes me really happy, and I hope this is a big step in raising the level of conferences here.
 
 Not only did they have a mix of English and Korean talks,
-they handled live translation much better than any other event I’ve seen: [Flitto](flitto.com).
+they handled live translation much better than any other event I’ve seen.
+They used a service called [Flitto](flitto.com).
 Apparently it’s a Korean company,
 and they were using some AI models to do the heavy lifting.
 It had some hiccups to be sure,
-but it did a surprisingly good job.
+but it did a surprisingly good job!
 The main complaint I heard was that it would wait for half or 2/3 of a screenful of content, causing jumps that were hard to read.
 
 The speakers I talked with said they had to provide a script in advance,
