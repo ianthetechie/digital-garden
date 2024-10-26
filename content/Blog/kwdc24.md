@@ -54,7 +54,7 @@ and an earpiece for live translation.
 This is almost always a flop for many reasons,
 and I have to say the text on screen approach was preferred by everyone I talked to.
 
-![View of the stage during a talk about Swift 6, showing the screen with live translation next to the slides](IMG_8818.jpeg)
+![View of the stage during a talk about Swift 6, showing the screen with live translation next to the slides](images/IMG_8818.jpeg)
 
 # Favorite talks
 
@@ -64,7 +64,7 @@ I was blown away by the amount of effort that he put into the slides,
 and got a bunch of things to follow up on (like this [video on shaders](https://m.youtube.com/watch?v=f4s1h2YETNY)).
 Talking with him after, he said it was the culmination of around 4 years of effort.
 
-![Pavel Zak on stage](IMG_8820.jpeg)
+![Pavel Zak on stage](images/IMG_8820.jpeg)
 
 [Riana’s](https://x.com/riana_soumi) talk on Swift Testing
 got me fired up to switch.
