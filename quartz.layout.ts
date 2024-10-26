@@ -10,7 +10,7 @@ export const sharedPageComponents: SharedLayout = {
     links: {
       Mastodon: "https://fosstodon.org/@ianthetechie",
       GitHub: "https://github.com/ianthetechie",
-      RSS: "index.xml",
+      RSS: "/index.xml",
     },
   }),
 }
