@@ -88,21 +88,23 @@ it’s all about the timeline!
 Networking at Korean conferences is typically a bit slow to be honest,
 as it is not normal in Korean culture to walk up to someone
 and start a conversation without much context.
-This event also happened to be somewhat exceptional!
+This event also happened to be exceptional in a good way!
 
-For starters, one minor shortcoming is that there was no clear announcement of lunch options.
+The first big networking opportunity was lunch.
+But there wasn't a very clear announcement of how lunch would work.
 Everyone was on their own, and the info was rather buried in some PDFs (which I didn’t get somehow)
 and Discord (which I had a hard time navigating).
 Together with a Danish friend I met at the iOS meetup a few days prior,
-I suggested we wing it and just follow the crowd outside to see where we ended up 🤣
+I suggested we wing it and just follow the crowd outside to see where we ended up,
+since they were clearly better informed than us 🤣
 
-We ended up taking a few turns following the group in front of us,
-and eventually I asked them if they would be cool with us crashing their party.
+We ended up taking a few turns following a group in front of us,
+and eventually I asked if they would be cool with us crashing their party.
 We ended up at a crowded Donkatsu buffet a few minutes later.
-Both were iOS engineers, one working at Hyundai AutoEver,
+The two at our table were iOS engineers, one working at Hyundai AutoEver,
 and another at [오늘의집](https://www.bucketplace.com/en/),
 and we had a great conversation over lunch!
-(They even bought us coffee; so friendly!)
+(They even bought us coffee after; so friendly!)
 
 One of them mentioned that we should check out the networking area in-between sessions, which I did later.
 It was a bit hard to find, since it was in a narrow hall,
