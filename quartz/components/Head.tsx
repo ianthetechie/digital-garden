@@ -40,7 +40,7 @@ export default (() => {
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
-	<link rel="me" href="https://fosstodon.org/@ianthetechie">Mastodon</link>
+	<link rel="me" href="https://fosstodon.org/@ianthetechie" />
 	<meta name="fediverse:creator" content="@ianthetechie@fosstodon.org" />
         {css.map((href) => (
           <link key={href} href={href} rel="stylesheet" type="text/css" spa-preserve />
