@@ -113,3 +113,11 @@ I'm pretty sure I'd have been happy with Hugo.
 But after reading a [great blog post last week](https://garden.christophertee.dev/blogs/Memory-Alignment-and-Layout/Part-1),
 I looked into how the site was made and stumbled upon [Quartz](https://quartz.jzhao.xyz/).
 I fell in love, especially as it's spiritually similar to the [Zettelkasten method](https://zettelkasten.de/overview/).
+
+# Deployment/hosting
+
+GitHub pages setup
+
+Domain funkiness
+
+Publishing with `just`

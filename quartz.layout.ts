@@ -9,9 +9,9 @@ export const sharedPageComponents: SharedLayout = {
   footer: Component.Footer({
     links: {
       Mastodon: "https://fosstodon.org/@ianthetechie",
-      GitHub: "https://github.com/ianthetechie",
       LinkedIn: "https://www.linkedin.com/in/ian-w-wagner/",
       Twitter: "https://x.com/ianthetechie",
+      GitHub: "https://github.com/ianthetechie",
       RSS: "/index.xml",
     },
   }),

@@ -14,3 +14,7 @@ I've been developing mobile apps since the month the App Store launched.
 I love startups, and have co-founded a few.
 I've worked in industries ranging from streaming media to finance and even agriculture.
 My day job (and nights and weekends too sometimmes) is [Stadia Maps](https://stadiamaps.com/).
+
+Want to get updates when I post something new?
+Follow me on your favorite channel in the footer,
+or subscribe to the RSS feed.
