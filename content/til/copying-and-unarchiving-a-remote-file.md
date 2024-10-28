@@ -56,7 +56,7 @@ I saw suggestions as well to use `dd` since you can set the block size explicitl
 That might improve perf in some situations if you know your hardware well.
 Or it might just be a useless attempt at premature optimization ;)
 
-Here's the final commant:
+Here's the final command:
 
 ```shell
 ssh -C -e none -T host.example.com 'cat /path/to/archive.tar' | tar -xvf -

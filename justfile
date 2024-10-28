@@ -1,2 +1,2 @@
 publish:
-  bunx jackyzha0/quartz sync
+  typos content/ && bunx jackyzha0/quartz sync

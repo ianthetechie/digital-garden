@@ -46,7 +46,7 @@ The main complaint I heard was that it would wait for half or 2/3 of a screenful
 The speakers I talked with said they had to provide a script in advance,
 which we speculate were used to improve the quality of the translations
 (which were still live, even when the presenter went “off script”).
-The model still mis-recognized some technical terms on occasion,
+The model still failed to recognize technical terms on occasion,
 but the hiccups were to be expected.
 Overall, the quality of the translation was excellent,
 and I think this will be the future of such events!
