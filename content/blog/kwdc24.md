@@ -6,7 +6,7 @@ tags:
 - AI
 - translation
 - apple
-- Swift
+- swift
 ---
 
 Yesterday I had the pleasure of attending KWDC 24,

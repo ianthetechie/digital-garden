@@ -1,8 +1,11 @@
 ---
 title: Copying and Unarchiving From a Server Without a Temp File
+date: 2024-10-28
 tags:
 - ssh
 - terminal
+- shell
+- tar
 ---
 
 Sometimes I want to copy files from a remote machine--usually a server I control.
