@@ -2,9 +2,6 @@
 title: "Welcome"
 ---
 
-Welcome to my site.
-I occasionally post things here.
-
 Most people know me as a programmer.
 I've been developing mobile apps since the month the App Store launched.
 I love startups, and have co-founded a few.
