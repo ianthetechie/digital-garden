@@ -1,5 +1,6 @@
 ---
 title: "Welcome"
+date: 2024-10-26
 ---
 
 Most people know me as a programmer.
