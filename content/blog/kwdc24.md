@@ -1,5 +1,6 @@
 ---
 title: KWDC 24
+date: 2024-10-26
 tags:
 - conferences
 - AI
