@@ -25,15 +25,39 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta(),
     Component.TagList(),
   ],
-  afterBody: [
-    Component.RecentNotes({title: "Recent", showTags: false}),
-  ],
+  afterBody: [Component.RecentNotes({ title: "Recent", showTags: false })],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer({title: "Navigation"})),
+    Component.DesktopOnly(
+      Component.Explorer({
+        title: "Navigation",
+        sortFn: (a, b) => {
+          if ((!a.file && !b.file) || (a.file && b.file)) {
+            // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
+            // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
+            const modTimeA = a.file?.dates?.created.getTime()
+            const modTimeB = b.file?.dates?.created.getTime()
+            console.log(modTimeA, modTimeB)
+            if (modTimeA && modTimeB) {
+              return modTimeB - modTimeA
+            } else {
+              return a.displayName.localeCompare(b.displayName, undefined, {
+                numeric: true,
+                sensitivity: "base",
+              })
+            }
+          }
+          if (a.file && !b.file) {
+            return 1
+          } else {
+            return -1
+          }
+        },
+      }),
+    ),
   ],
   right: [
     Component.Graph(),
@@ -50,7 +74,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer({title: "Navigation"})),
+    Component.DesktopOnly(Component.Explorer({ title: "Navigation" })),
   ],
   right: [],
 }
