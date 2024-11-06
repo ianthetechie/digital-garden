@@ -8,7 +8,7 @@ date: 2024-11-06
 ---
 
 I've lived in South Korea for quite some time,
-and in my time here I've become reasonably fluent in the language.
+and during my stay here I've become reasonably fluent in the language.
 People often ask how long it took to become fluent
 and if I have any tips for their language learning aspirations.
 This post is about what I've learned from a decade-plus fascination with language learning.
@@ -211,7 +211,7 @@ attempts to put it in a box like this.
 You study grammatical rules, forms, suffixes, and so on.
 But the number of people who ACTUALLY learn languages this way is a rounding error.
 
-You will fand more inconsistencies in any language than you can shake a stick at.
+You will find more inconsistencies in any language than you can shake a stick at.
 That's part of what makes learning human languages hard.
 Computer languages are, by contrast, easy.
 They have to adhere to rigid rules,
