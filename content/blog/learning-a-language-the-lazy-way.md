@@ -222,3 +222,8 @@ This approach will only hurt you though with human languages.
 As Jack Sparrow infamously said,
 it's more like "guidelines" than actual rules.
 Loosen up and enjoy!
+
+# Other resources
+
+My friend Andrew put together a list of useful resources he's found for Korean self-study.
+Check it out [on his blog](https://andrewzah.com/p/korean-learning-useful-apps/).
