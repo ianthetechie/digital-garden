@@ -30,40 +30,46 @@ gives a great high-level overview.
 Here are the stand-out features:
 
 * It has a schema and some data types, unlike CSV (you can even have maps and lists!).
-* It's column-oriented. That means that on disk, it writes a bunch of _column_ values sequentiall
-  rather than writing one row at a time. Among other things, this results in GREAT compression.
-* It has statistics which enable "predicate pushdown." Even though the files are columnar in nature,
-  you can narrow which files and "row groups" have the data you need.
+* On disk, values are written in groups per _column_, rather than writing one row at a time.
+  This makes the data much easier to compress, and lets readers easily skip over data they don't need.
+* Statistics at several levels which enable "predicate pushdown." Even though the files are columnar in nature,
+  you can narrow which files and "row groups" within each file have the data you need!
 
 Practically speaking, parquet lets you can distribute large datasets in _one or more_ files
 which will be significantly _smaller and faster to query_ than other familiar formats.
 
 ## Why you should care
 
-The value proposition is crystal clear for big data processing.
+The value proposition is clear for big data processing.
 If you're trying to get a record of all traffic accidents in California,
 or find the hottest restaurants in Paris based on a multi-terabyte dataset,
-it's an obvious win.
-You can skip row groups within the parquet file or even whole files!
+parquet provides clear advantages.
+You can skip row groups within the parquet file or even whole files
+to narrow your search!
 And since datasets can be split across files,
-you can keep adding to the dataset over time, parallelize work,
+you can keep adding to the dataset over time, parallelize queries,
 and other nice things.
 
 But what if you're not doing these high-level analytical things?
-This wasn't immediately clear to me, but Parquet can serve these use cases too.
+It wasn't immediately clear to me, since it seemed like a lot of work
+compared to parsing a CSV.
+Especially since you need to "rotate" the data back into rows for the use cases I had in mind.
+(We'll revisit that later, but in short, it's not an issue.)
 
-* You actually have a schema! This means less format shifting and validation!
+Here are some reason's that Parquet is nice, even when your goal is to process all/most rows in a dataset:
+
+* You actually have a schema! This means less format shifting and validation in your code.
 * Operating on row groups turns out to be pretty efficient, even when you're reading the whole dataset.
-  Combining batch reads with compression, your processing code will get faster.
+  Combining batch reads with compression, your processing code will usually get faster.
 * It's designed to be readable from object storage.
-  Huge dataset? Just select the _columns_ you need and read from object storage.
+  This means you can query massive datasets from your laptop.
+  And if you need all the rows but not all _columns_,
+  Parquet readers are smart and will skip the data you don't need.
 
 The upshot of all this is that it generally gets both _easier_ and _faster_
-to work with your data!
-I understood this intuitively for the "analytical" use case.
-But I couldn't fully appreciate it for my more typical use case (consuming whole datasets)
-until I had the right tools to leverage it.
-That changed when I realized how I could leverage DuckDB.
+to work with your data...
+But first, you need the right tools to leverage it.
+For me, DuckDB was one of the missing pieces of the puzzle.
 
 # DuckDB
 
@@ -79,43 +85,33 @@ You can't just open up a Parquet file in a text editor or spreadsheet software l
 My friend Oliver released a [web-based demo](https://wipfli.github.io/foursquare-os-places-pmtiles/)
 a few weeks ago which lets you inspect the data on a map at the point level.
 But to do more than spot checking, you'll need a database that can work with Parquet.
-
-DuckDB provided the tools to get started quickly,
-but turned out to be even more useful than I expected.
+And that's where DuckDB comes in.
 
 ## Why you should care
 
 ### It's embedded
 
 I understood the in-process part of DuckDB's value proposition right away.
-Think SQLite, where you don't have to go through a server
+It's similar to SQLite, where you don't have to go through a server
 or over an HTTP connection.
-This is both simpler to reason about and [can be quite a bit faster, even locally](quadrupling-the-performance-of-a-data-pipeline.md)!
+This is both simpler to reason about and [is usually quite a bit faster](quadrupling-the-performance-of-a-data-pipeline.md)
+than having to call out to a separate service!
 
-Similarly, the portable part makes sense.
-They describe themselves as dependency-free (which really means they vendor some things.
-I'll leave it up to you to decide whether this is good or bad, but it's a widespread practice).
-Building from source only took a minute or two on my laptop (an M1 Max MBP).
-This isn't normally required for installing the CLI,
-but it may be useful for the library use case.
-
-I ended up going the source route because the default settings for the Rust crate
-are to look for a shared library.
-I couldn't get this working, even after a `brew` install.
+DuckDB is pretty quick to compile from source.
+You probably don't need to muck around with this if you're just using the CLI,
+but I wanted to eventually use it embedded in a Rust application.
+Compiling from source turned out to be the easiest way to get their crate working.
+It looks for a shared library by default, but I couldn't get this working after a `brew` install.
 This was mildly annoying, but on the other hand,
-vendoring the library makes consistent Docker builds easier.
+vendoring the library does make consistent Docker builds easier 🤷🏻‍♂️
 
 ### Features galore!
 
-I did not fully appreciate previously just how feature-rich and fast DuckDB is.
-It has pretty much the kitchen sink thrown in.
+DuckDB includes a mind boggling number of features.
+Not in a confusing way; more in a Python stdlib way where just about everything you'd want is already there.
 You can query a whole directory (or bucket) of CSV files,
 a Postgres database, SQLite, or even an OpenStreetMap PBF file 🤯
-It's kind of nuts how much of a Swiss Army Knife DuckDB is.
-And the fact that it's in-process via a library means that
-**you can deeply integrate it into regular programs**.
-
-DuckDB literally lets you write a SQL query against a glob expression of Parquet files in S3
+You can even write a SQL query against a glob expression of Parquet files in S3
 as your "table."
 **That's really cool!**
 
@@ -135,10 +131,10 @@ courtesy of the "vectorized" query engine.
 What I've heard of the design reminds me of how array-oriented programming languages like APL
 (or less esoteric libraries like numpy) are often implemented.
 
-Not to bury a teaser halfway through the post,
-but I was able to do some spatial aggregation operations
+I was able to do some spatial aggregation operations
 (bucketing a filtered list of locations by H3 index)
 in about **10 seconds on a dataset of more than 40 million rows**!
+(The full dataset is over 100 million rows, so I also got to see the selective reading in action.)
 That piqued my interest, to say the least.
 (Here's the result of that query, visualized).
 
@@ -146,7 +142,7 @@ That piqued my interest, to say the least.
 
 ### That analytical thing...
 
-And now for the final buzzword in DuckDB's marketing: analytical.
+And now for the final buzzword in DuckDB's marketing line: analytical.
 DuckDB frquently describes itself as optimized for OLAP (OnLine Analytical Processing) workloads.
 This is contrasted with OLTP (OnLine Transaction Processing).
 [Wikipedia](https://en.wikipedia.org/wiki/Online_analytical_processing) will tell you some differences
@@ -159,39 +155,48 @@ This didn't help, since most of my use cases involve slurping most or all of the
 The DuckDB marketing and docs didn't help clarify things either.
 
 Let me know on Mastodon if you have a better explanatation of what an "analytical" database is 🤣
+
 I think a better explanation is probably 1) you do mostly _read_ queries,
 and 2) it can execute highly parallel queries.
 So far, DuckDB has been excellent for both the "analytical" and the iterative use case.
 I assume it's just not the best choice per se if your workload is mostly writes?
 
-## Embedded, revisitied
+## How I used it
 
-At this point, we need to revisit the topic of how (and why) DuckDB is embedded in your process.
-This is a superpower, because most languages like Python and Rust
+Embedding DuckDB in a Rust project allowed me to deliver something with a better end-user experience,
+is easier to maintain,
+and saved writing hundreds of lines of code in the process.
+
+Most general-purpose languages like Python and Rust
 don't have primitives for expressing things like joins across datasets.
 DuckDB, like most database systems, does!
-
 Yes, I _could_ write some code using the `parquet` crate
 that wolud filter across a nested directory tree of 5,000 files.
 But DuckDB does that out of the box!
-Using DuckDB's Rust API enabled the above visualization,
-which is a mix of aggregation, format-shifting the results to a JSON file,
-and rendering using [MapLibre](https://maplibre.org/),
-All served up by an Axum web server.
-We get a _single binary_ that does the analysis, visualization, and presentation together!
+
+It feels like this is a "regex moment" for data processing.
+Just like you don't (usually) need to hand-roll string processing,
+there's now little reason to hand-roll data aggregation.
+
+For the above visualization, I used the Rust DuckDB crate for the data processing,
+converted the results to JSON,
+and served it up from an Axum web server.
+All in a _single binary_!
 That's lot nicer than a bash script that executes SQL,
 dumps to a file, and then starts up a Python or Node web server!
+And breaks when you don't have Python or Node installed,
+your OS changes its default shell,
+you forget that some awk flag doesn't work on the GNU version,
+and so on.
 
 # Apache Arrow
 
 The final thing I want to touch on is [Apache Arrow](https://arrow.apache.org/).
+This is yet another incredibly useful technology which I've been following for a while,
+but never quite figured out how to properly use until last week.
+
 Arrow is a _language-independent memory format_
 that's _optimized for efficient analytic operations_ on modern CPUs and GPUs.
-Among its other features, it's designed to support zero-copy reads.
-This sounds kind of boring, but it's a _huge_ deal for performance,
-and I'll probably blog about it at some point.
-Beyond simply "not copying," there is a whole ecosystem of libraries which understand the Arrow memory format.
-
 The core idea is that, rather than having to convert data from one format to another (this implies copying!),
 Arrow defines as shared memory format which many systems understand.
 In practice, this ends up being a bunch of standards which define common representations for different types,
@@ -202,7 +207,6 @@ Pretty cool!
 
 ## How the heck do I use it?
 
-I've heard of this a lot for the past year or so, but to be honest I wasn't quite sure how to use it.
 The [DuckDB crate](https://docs.rs/duckdb/latest/duckdb/)
 includes an [Arrow API](https://docs.rs/duckdb/latest/duckdb/struct.Statement.html#method.query_arrow)
 which will give you an iterator over `RecordBatch`es.
@@ -210,7 +214,7 @@ which will give you an iterator over `RecordBatch`es.
 The Arrow ecosystem, like Parquet, takes a lot of work to understand,
 and using the low-level libraries directly is difficult.
 But after discovering what I could do with DuckDB,
-I really finally had enough motivation to properly figure out how to use Arrow.
+I finally had enough motivation to properly figure out how to use Arrow.
 
 After some searching, I finally found [`serde_arrow`](https://docs.rs/serde_arrow/).
 It builds on the `serde` ecosystem with easy-to-use methods that operate on `RecordBatch`es.
@@ -233,11 +237,5 @@ a pipeline in Rust.
 Most people turn to Python or JavaScript for tasks like this,
 but Rust has something to add: strong typing and all the related guarantees _which can only come with some level of formalism_.
 But that doesn't necessarily have to get in the way of productivity!
-
-[`serde`](https://docs.rs/serde/latest/), provides ergonomic serialization and deserialization
-via macros and doesn't sacrifice much performance (or, importantly, _any_ correctness).
-[`serde_arrow`](https://docs.rs/serde_arrow/) and [`duckdb`](https://docs.rs/duckdb/) combined
-give superpowers to your data pipelines.
-By leveraging SQL, you can concisely express logic that would otherwise span thousands of lines of code.
 
 Hopefully this sparks some ideas for making your next data pipeline both fast and correct.
