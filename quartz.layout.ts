@@ -11,6 +11,7 @@ export const sharedPageComponents: SharedLayout = {
       Mastodon: "https://fosstodon.org/@ianthetechie",
       LinkedIn: "https://www.linkedin.com/in/ian-w-wagner/",
       Xitter: "https://x.com/ianthetechie",
+      BlueSky: "https://bsky.app/profile/ianwwagner.com",
       GitHub: "https://github.com/ianthetechie",
       RSS: "/index.xml",
     },
