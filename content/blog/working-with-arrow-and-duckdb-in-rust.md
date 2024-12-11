@@ -51,25 +51,22 @@ you can keep adding to the dataset over time, parallelize queries,
 and other nice things.
 
 But what if you're not doing these high-level analytical things?
-It wasn't immediately clear to me, since it seemed like a lot of work
-compared to parsing a CSV.
-Especially since you need to "rotate" the data back into rows for the use cases I had in mind.
-(We'll revisit that later, but in short, it's not an issue.)
-
-Here are some reason's that Parquet is nice, even when your goal is to process all/most rows in a dataset:
+Why not just use a more straightforward format like CSV
+that avoids the need to "rotate" back into rows
+for non-aggregation use cases?
+Here are a few reasons to like Parquet:
 
 * You actually have a schema! This means less format shifting and validation in your code.
 * Operating on row groups turns out to be pretty efficient, even when you're reading the whole dataset.
   Combining batch reads with compression, your processing code will usually get faster.
 * It's designed to be readable from object storage.
-  This means you can query massive datasets from your laptop.
-  And if you need all the rows but not all _columns_,
-  Parquet readers are smart and will skip the data you don't need.
+  This means you can often massive datasets from your laptop.
+  Parquet readers are smart and can skip over data you don't need.
+  You can't do this with CSV.
 
 The upshot of all this is that it generally gets both _easier_ and _faster_
 to work with your data...
-But first, you need the right tools to leverage it.
-For me, DuckDB was one of the missing pieces of the puzzle.
+provided that you have the right tools to leverage it.
 
 # DuckDB
 
@@ -84,7 +81,7 @@ It was also in Parquet format (just like [Overture](https://overturemaps.org/)'s
 You can't just open up a Parquet file in a text editor or spreadsheet software like you can a CSV.
 My friend Oliver released a [web-based demo](https://wipfli.github.io/foursquare-os-places-pmtiles/)
 a few weeks ago which lets you inspect the data on a map at the point level.
-But to do more than spot checking, you'll need a database that can work with Parquet.
+But to do more than spot checking, you'll probably want a database that can work with Parquet.
 And that's where DuckDB comes in.
 
 ## Why you should care
@@ -99,7 +96,7 @@ than having to call out to a separate service!
 
 DuckDB is pretty quick to compile from source.
 You probably don't need to muck around with this if you're just using the CLI,
-but I wanted to eventually use it embedded in a Rust application.
+but I wanted to eventually use it embedded in some Rust code.
 Compiling from source turned out to be the easiest way to get their crate working.
 It looks for a shared library by default, but I couldn't get this working after a `brew` install.
 This was mildly annoying, but on the other hand,
@@ -114,6 +111,8 @@ a Postgres database, SQLite, or even an OpenStreetMap PBF file 🤯
 You can even write a SQL query against a glob expression of Parquet files in S3
 as your "table."
 **That's really cool!**
+(If you've been around the space, you may recognize this concept from
+AWS Athena and others.)
 
 ### Speed
 
@@ -142,7 +141,7 @@ That piqued my interest, to say the least.
 
 ### That analytical thing...
 
-And now for the final buzzword in DuckDB's marketing line: analytical.
+And now for the final buzzword in DuckDB's marketing: analytical.
 DuckDB frquently describes itself as optimized for OLAP (OnLine Analytical Processing) workloads.
 This is contrasted with OLTP (OnLine Transaction Processing).
 [Wikipedia](https://en.wikipedia.org/wiki/Online_analytical_processing) will tell you some differences
@@ -158,10 +157,10 @@ Let me know on Mastodon if you have a better explanatation of what an "analytica
 
 I think a better explanation is probably 1) you do mostly _read_ queries,
 and 2) it can execute highly parallel queries.
-So far, DuckDB has been excellent for both the "analytical" and the iterative use case.
-I assume it's just not the best choice per se if your workload is mostly writes?
+So far, DuckDB has been excellent for both the "aggregate" and the "iterative" use case.
+I assume it's just not the best choice per se if your workload is a lot of single-record writes?
 
-## How I used it
+## How I'm using DuckDB
 
 Embedding DuckDB in a Rust project allowed me to deliver something with a better end-user experience,
 is easier to maintain,
@@ -205,24 +204,39 @@ For example, the [GeoArrow](https://geoarrow.org/) spec
 builds on the Arrow ecosystem to enable operations on spatial data in a common memory format.
 Pretty cool!
 
-## How the heck do I use it?
+## Why you should care
 
+It turns out that copying and format shifting data can really eat into your processing times.
+Arrow helps you sidestep that by reducing the amount of both you'll need to do,
+and by worknig on data in groups.
+
+## How the heck to use it?
+
+Arrow is mostly hidden from view beneath other libraries.
+So most of the time, especially if you're writing in a very high level language like Python,
+you won't even see it.
+
+But if you're writing something at a slightly lower level,
+it's something you may have to touch for critical sections.
 The [DuckDB crate](https://docs.rs/duckdb/latest/duckdb/)
 includes an [Arrow API](https://docs.rs/duckdb/latest/duckdb/struct.Statement.html#method.query_arrow)
 which will give you an iterator over `RecordBatch`es.
+This is pretty convenient, since you can use DuckDB to gather all your data
+and just consume the stream of batches!
 
+So, how do we work with `RecordBatch`es?
 The Arrow ecosystem, like Parquet, takes a lot of work to understand,
 and using the low-level libraries directly is difficult.
-But after discovering what I could do with DuckDB,
-I finally had enough motivation to properly figure out how to use Arrow.
+Even as a seasoned Rustacean, I found the docs rather obtuse.
 
 After some searching, I finally found [`serde_arrow`](https://docs.rs/serde_arrow/).
 It builds on the `serde` ecosystem with easy-to-use methods that operate on `RecordBatch`es.
 Finally; something I can use!
 
-I was initilaly worried about how performant it would be,
-but the rotation from columns to rows turns out to be a pretty performant operation over large batches!
-Here's how it looks:
+I was initilaly worried about how performant the shift from columns to rows + any (minimal) `serde` overhead would be,
+but this turned out to not be an issue.
+
+Here's how the code looks:
 
 ```rust
 serde_arrow::from_record_batch::<Vec<FoursquarePlaceRecord>>(&batch)
