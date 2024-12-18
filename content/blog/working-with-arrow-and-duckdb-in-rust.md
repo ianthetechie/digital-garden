@@ -60,7 +60,7 @@ Here are a few reasons to like Parquet:
 * Operating on row groups turns out to be pretty efficient, even when you're reading the whole dataset.
   Combining batch reads with compression, your processing code will usually get faster.
 * It's designed to be readable from object storage.
-  This means you can often massive datasets from your laptop.
+  This means you can often process massive datasets from your laptop.
   Parquet readers are smart and can skip over data you don't need.
   You can't do this with CSV.
 
@@ -170,7 +170,7 @@ Most general-purpose languages like Python and Rust
 don't have primitives for expressing things like joins across datasets.
 DuckDB, like most database systems, does!
 Yes, I _could_ write some code using the `parquet` crate
-that wolud filter across a nested directory tree of 5,000 files.
+that would filter across a nested directory tree of 5,000 files.
 But DuckDB does that out of the box!
 
 It feels like this is a "regex moment" for data processing.
