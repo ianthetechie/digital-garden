@@ -38,6 +38,12 @@ But overall, profiling indicates that `stream_arrow` requires significantly less
 Unfortunately, none of the above information about memory consumption appears to be documented,
 and there are no (serious) code samples demonstrating the use of `stream_arrow`!
 
+> [!question] Down the rabbit hole...
+> Digging into the code in duckdb-rs raises even more questions,
+> since several underlying C functions, like [`duckdb_execute_prepared_streaming`](https://duckdb.org/docs/api/c/api.html#duckdb_execute_prepared_streaming)
+> are marked as deprecated.
+> Presumably, alternatives are being developed or the methods are just not stable yet.
+
 # Getting a `SchemaRef`
 
 The signature of `stream_arrow` is a bit different from that of `query_arrow`.
@@ -161,7 +167,7 @@ That's somewhat worrying to me, since it implies there is still measurable overh
 proportional to the dataset size.
 What practical limits does this impose on dataset size?
 
-> [!info]
+> [!note]
 > An astute reader may be asking whether the memory profile of the `LIMIT 0` and `execute` approaches are equivalent.
 > The answer appears to be yes.
 
