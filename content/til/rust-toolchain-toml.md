@@ -30,7 +30,7 @@ is to pin to a specific release.
 This is pretty rare in practice I think, unless you need `nightly`.
 You can specify channels like `nightly`, `stable`, and `beta` in addition to specific releases.
 
-The more useful one in my opinion is for cross-compilation.
+The killer use case in my opinion is for easier cross-compilation.
 I do a lot of cross compiling, and codifying all required targets in a single file makes life much easier!
 
 The best part is that, as long as you're using `rustup`, everything is automatic!
