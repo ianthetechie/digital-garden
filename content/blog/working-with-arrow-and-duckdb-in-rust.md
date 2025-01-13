@@ -208,7 +208,7 @@ Pretty cool!
 
 It turns out that copying and format shifting data can really eat into your processing times.
 Arrow helps you sidestep that by reducing the amount of both you'll need to do,
-and by worknig on data in groups.
+and by working on data in groups.
 
 ## How the heck to use it?
 
