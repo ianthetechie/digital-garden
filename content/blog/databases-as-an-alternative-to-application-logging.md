@@ -67,6 +67,8 @@ From here, we can do meaningufl *analytical* queries like
 or "how many records were rejected due to metadata mismatches"
 (ex: claiming to be a US address but appearing in North Korea).
 
+## Cross-dataset joins, anyone?
+
 If this query uncovers a lot of rejected records from one data source,
 wouldn't it be nice if we could look at a sample?
 We have the IDs right there in the log, and the data source identifier, after all.
