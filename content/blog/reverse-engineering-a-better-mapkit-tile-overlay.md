@@ -1,5 +1,5 @@
 ---
-title: Reverse Engineering a Better MapKit Tile Overlay
+title: Reverse Engineering Better MapKit Tile Overlays
 tags:
 - ios
 - swift
@@ -8,7 +8,7 @@ tags:
 date: 2025-02-11
 ---
 
-# Reverse Engineering a Better MapKit Tile Overlay
+# Reverse Engineering Better MapKit Tile Overlays
 
 Despite nearly 15 years of developing iOS apps on a daily basis,
 it’s occasionally jarring to go back to some of the older APIs.
