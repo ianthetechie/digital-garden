@@ -50,7 +50,7 @@ some surprising behaviors that I found along the way,
 and maybe even a few bits of [ancient wisdom](https://xkcd.com/979/)
 to share on StackOverflow.
 
-## A Tale of two MapKits
+# A Tale of two MapKits
 
 MapKit has long had support for overlays.
 Per [Apple's docs](https://developer.apple.com/documentation/mapkit/mkoverlayrenderer),
@@ -79,7 +79,7 @@ There are at least two good reasons you might want to:
 * **One less dependency**: if you absolutely can't afford a (very few) extra megabytes, MapKit makes sense since it's bundled with the OS.
 * **Broad device support**: it's probably possible to build maps with another framework on niche platforms like watchOS and visionOS, but MapKit just works &trade;.
 
-## Diving into `MKTileOverlay`
+# Diving into `MKTileOverlay`
 
 Ok, let's take a look at the APIs here.
 The first one we'll look at is [`MKTileOverlay`](https://developer.apple.com/documentation/mapkit/mktileoverlay).
@@ -115,7 +115,7 @@ This gives you ultimate freedom in how you make your network request,
 if you make a network request at all, how you cache tiles, etc.
 We'll revisit this in a bit.
 
-## Adding an overlay to the map
+# Adding an overlay to the map
 
 Adding an overlay to the map is not quite as straightforward as `mapView.addOverlay(overlay)`.
 The design of `MKMapView` is quite flexible... so much so that you _have_ to implement
@@ -167,7 +167,7 @@ There's just one problem... [the UX is _awful_](https://stackoverflow.com/questi
 > To fix this bug, write `mapView.addOverlay(overlay, level: .aboveLabels)`.
 
 
-## Fixing the Flash
+# Fixing the Flash
 
 I initially thought the flashing behavior was a result of a poor cache implementation.
 So the first thing I did was to write my own `MKTileOverlay` subclass.
@@ -326,7 +326,7 @@ But it got rid of the flicker, and I think that's the bigger win.
 > It wasn't very interesting, and this is a LONG post.
 > You can find the [full code on GitHub](https://github.com/stadiamaps/mapkit-caching-tile-overlay/blob/main/Sources/CachingMapKitTileOverlay/CachingTileOverlayRenderer.swift).
 
-## Implementing `CachingTileOverlay`
+# Implementing `CachingTileOverlay`
 
 After some minimal testing, it became clear that the default caching behavior
 was not going to cut it.
@@ -380,7 +380,7 @@ And that's pretty much all the interesting bits in the overlay.
 For a full implementation of an overlay,
 check out [this one for Stadia Maps raster layers](https://github.com/stadiamaps/mapkit-layers).
 
-## Going for Gold: Overzooming
+# Going for Gold: Overzooming
 
 With the zoom transition "flicker" solved for cases where the tile was already in the cache,
 I noticed there was another problem with `MKTileOverlayRenderer`.
@@ -472,7 +472,7 @@ but here are links to the files on GitHub:
 > when you go in reverse, the task is to load 4 tiles and stitch them together.
 > PRs welcome if anyone wants to take a swing!
 
-## Conclusion
+# Conclusion
 
 Mapkit is full of surprises.
 While it works pretty well out of the box with a vanilla map style from Apple on a fast network,
