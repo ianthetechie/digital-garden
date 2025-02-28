@@ -5,7 +5,7 @@ tags:
 date: 2025-02-28
 ---
 
-Earlier today, a friend sent me a joke about boycotting <some big evil tech company> for three days:
+Earlier today, a friend sent me a joke about boycotting &lt;some big evil tech company&gt; for three days:
 Feb 29, 30, and 31.
 I thought this was pretty funny.
 But then, darker thoughts started to form.
