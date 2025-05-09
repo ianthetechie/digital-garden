@@ -3,6 +3,7 @@ title: Unicode Normalization
 date: 2025-05-09
 tags:
 - unicode
+- rust
 ---
 
 Today I ran into an [amusingly named place](https://www.openstreetmap.org/node/9317391311/history/2),
