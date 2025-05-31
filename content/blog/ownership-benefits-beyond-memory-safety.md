@@ -6,7 +6,7 @@ tags:
 date: 2025-05-31
 ---
 
-Rust's ownership system is well-known for the ways it enforcesmemory safety guaranteees.
+Rust's ownership system is well-known for the ways it enforces memory safety guaranteees.
 For example, you can't use some value after it's been freed.
 Further, it also ensures that mutability is explicit,
 and it enforces some extra rules that make _most_ data races impossible.
