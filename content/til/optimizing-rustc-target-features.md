@@ -13,22 +13,30 @@ so I thought I'd do a quick writeup on this.
 
 # Background: CPU features
 
-One of the things that a modern optimizing compiler does for your code is to take advantage of these features.
-This includes rewriting known patterns into "vectorized" code using specialized SIMD instructions.
+A compiler translates your "idiomatic" code into low-level instructions.
+Modern optimizing compilers are pretty good at figuring out ways to cleverly rewrite your code
+to make it faster, while still being functionally equivalent at execution time.
+The instructions may be reordered from what your simple mental model expects,
+and they may even have no resemblance.
+This includes rewriting some loop-like (or iterator) patterns into "vectorized" code using SIMD instructions
+that perform some operation on multiple values at once.
 
-In Rust compiler speak, your base configuration is determined by the _target triple_
-you're building for.
+Special instruction families like this often vary within a single architecture,
+which may be surprising at first.
+The compiler can be configured to enable (or disable!) specific "features",
+optimizing for compatibility or speed.
+
+In `rustc`, each _target triple_ has a default set of CPU features enabled.
 In the case of my work laptop, that's `aarch64-apple-darwin`.
-Since this architecture doesn't have a lot of configurations,
+Since this architecture doesn't have a lot of variation among chips,
 the compiler can make some pretty good assumptions about what's available.
-(In fact, for my specific CPU, it's perfect!)
-
-Unfortunately, CPUs are far from homogenous,
-and there are a lot of differences within the most common architectures you're likely to deploy on.
-As a result, your code is often compiled for the lowest common denominator.
+(In fact, for my specific CPU, the M1 Max, it's perfect!)
+But we'll soon see this is not the case for the most common target: x86_64 Linux.
 
 # Checking available features
 
+To figure out what features we could theoretically enable,
+we need some CPU info from the machine we intend to deploy on.
 The canonical way of checking CPU features on Linux is probably to `cat /proc/cpuinfo`.
 This gives a lot more output that you probably need though.
 Helpfully, `rustc` includes a simple command that shows you the config
@@ -88,7 +96,7 @@ If anyone knows why, let me know!
 # Checking the default features
 
 Perhaps the more interesting question which motivates this investigation is
-what the defaults are.
+what the _defaults_ are.
 You can get this with `rustc --print cfg`.
 This shows what you get when you run `cargo build` without any special configuration.
 Here's the output for the same machine:
@@ -117,14 +125,13 @@ unix
 
 Well, that's disappointing, isn't it?
 By default, you'd only get up to SSE2, which is over 20 years old by now!
-This CPU is new enough to support
 This is a consequence of the diversity of the `x86_64` architecture.
 If you want your binary to run _everywhere_, this is the price you'd have to pay.
 
 # Enabling features individually
 
-While `-C target-cpu=native` will probably make your code faster on the build machine,
-a lot of modern software is built by a CI pipeline and run elsewhere.
+While `-C target-cpu=native` will usually make your code faster on the build machine,
+a lot of modern software is built by a CI pipeline on cheap runners, but deployed elsewhere.
 To reliably target a specific set of features, use the `target-feature` flag.
 This lets you specifically enable features you know will be available on the machine running the code.
 Here's an example of `RUSTFLAGS` that incorporates all of the above features.
