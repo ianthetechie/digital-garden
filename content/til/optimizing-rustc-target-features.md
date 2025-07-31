@@ -1,8 +1,10 @@
 ---
 title: Optimizing Rust `target-flags`
 date: 2025-07-28
+modified: 2025-07-31
 tags:
 - rust
+- devops
 ---
 
 Recently I've been doing some work using [Apache DataFusion](https://datafusion.apache.org/) for some high-throughput data pipelines.
@@ -142,6 +144,52 @@ that supports the exact features of the deployment machine.
 RUSTFLAGS="-C target-feature=+adx,+aes,+avx,+avx2,+bmi1,+bmi2,+cmpxchg16b,+f16c,+fma,+fxsr,+lzcnt,+movbe,+pclmulqdq,+popcnt,+rdrand,+rdseed,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+xsave,+xsavec,+xsaveopt,+xsaves"
 ```
 
+# Enabling features by x86 microarchitecture level
+
+A few days after writing this, I accidentally stumbled upon something else when working out target flags
+for a program I knew would have wider support across several datacenters.
+It sure would be nice if there were some "groups" of commonly supported features, right?
+
+Turns out this exists, and it was staring right at me in the CPU list: microarchitecture levels!
+If you list out all the available target CPUs via `rustc --print target-cpus` on a typical x86_64 Linux box,
+you'll see that your default target CPU is `x86-64`.
+This means it will run on all x86_64 CPUs, and as we discussed above, this doesn't give much of a baseline.
+But there are 4 versions in total, going up to `x86-64-v4`.
+It turns out that AMD, Intel, RedHat, and SUSE got together in 2020 to define these,
+and came up with some levels which are specifically designed for our use case of optimizing compilers!
+You can find the [full list of supported features by level on Wikipedia](https://en.wikipedia.org/wiki/X86-64)
+(search for "microarchitecture levels").
+
+`rustc --print target-cpus` will also tell you which _specific_ CPU you're on.
+You can use this info to find which "level" you support.
+But a more direct way to map to level support is to run `/lib64/ld-linux-x86-64.so.2 --help`.
+Thanks, internet!
+You'll get some output like this on a modern CPU:
+
+```
+Subdirectories of glibc-hwcaps directories, in priority order:
+  x86-64-v4 (supported, searched)
+  x86-64-v3 (supported, searched)
+  x86-64-v2 (supported, searched)
+```
+
+And if you run on slightly older hardware, you might get something like this:
+
+```
+Subdirectories of glibc-hwcaps directories, in priority order:
+  x86-64-v4
+  x86-64-v3 (supported, searched)
+  x86-64-v2 (supported, searched)
+```
+
+This should help if you're trying to aim for broader distribution rather than enabling specific features for some known host.
+The line to target an x86_64 microarch level is a lot shorter.
+For example:
+
+```
+RUSTFLAGS="-C target-cpu=x86-64-v3"
+```
+
 # Don't forget to measure!
 
 Enabling CPU features doesn't always make things faster.
@@ -149,7 +197,12 @@ In fact, in some cases, it can even do the opposite!
 This [thread](https://internals.rust-lang.org/t/slower-code-with-c-target-cpu-native/17315)
 has some interesting anecdotes.
 
-# Other helpful commands
+# Summary of helpful commands
 
-* `rustc --print target-cpus` - List all known target CPUs. This also tells you what your current CPU is and what the default is.
-* `rustc --print target-features` - List all _available_ target features with a short description. You can scope to a specific CPU with `-C target-cpu=`.
+In conclusion, here's a quick reference of the useful commands we covered:
+
+* `rustc --print cfg` - Shows the compiler configuration that your toolchain will use by default.
+* `rustc --print=cfg -C target-cpu=native` - List the configuration if you were to specifically target for your CPU. Use this to see the delta between the defaults and the featurse supported for a specific CPU.
+* `rustc --print target-cpus` - List all known target CPUs. This also tells you what your current CPU and what the default CPU is for your current toolchain.
+* `/lib64/ld-linux-x86-64.so.2 --help` - Specifically for x86_64 Linux users, will show you what microarchitecture levels your CPU supports.
+* `rustc --print target-features` - List _all available_ target features with a short description. You can scope to a specific CPU with `-C target-cpu=`. Useful mostly to see what you're missing, I guess.
