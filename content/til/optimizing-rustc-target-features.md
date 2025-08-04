@@ -1,5 +1,5 @@
 ---
-title: Optimizing Rust `target-flags`
+title: Optimizing Rust Builds with Target Flags
 date: 2025-07-28
 modified: 2025-07-31
 tags:
