@@ -1,7 +1,7 @@
 ---
 title: Optimizing Rust Builds with Target Flags
 date: 2025-07-28
-modified: 2025-07-31
+modified: 2025-08-14
 tags:
 - rust
 - devops
@@ -90,10 +90,16 @@ target_vendor="unknown"
 unix
 ```
 
-Aside: I'm not quite sure why, but this isn't a 1:1 match with `/proc/cpuinfo` on this box!
+~~Aside: I'm not quite sure why, but this isn't a 1:1 match with `/proc/cpuinfo` on this box!
 It definitely does support some AVX512 instructions,
 but those don't show up in the native CPU options.
-If anyone knows why, let me know!
+If anyone knows why, let me know!~~
+
+**UPDATE:** Shortly after publishing this post, Rust 1.89 was released.
+[This PR](https://github.com/rust-lang/rust/pull/138940) linked in the release notes caught my eye.
+Apparently the target features for AVX512 were not actually stable at the time of writing,
+but they are now.
+Re-running the above command with version 1.89 of rustc now includes the AVX512 instructions.
 
 # Checking the default features
 
@@ -189,6 +195,10 @@ For example:
 ```
 RUSTFLAGS="-C target-cpu=x86-64-v3"
 ```
+
+**NOTE:** As mentioned above, Rust 1.89 was released shortly after this post.
+This incidentally brings support for AVX512 CPU features in the `x86-64-v4` target CPU,
+which were previously marked unstable.
 
 # Don't forget to measure!
 
