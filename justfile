@@ -1,5 +1,2 @@
-publish:
-  typos content/ && bunx jackyzha0/quartz sync
-
 preview:
-  npx quartz build --serve
+  typos content/ && marmite --serve --watch . site
