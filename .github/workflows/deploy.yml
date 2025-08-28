@@ -35,6 +35,9 @@ jobs:
         run: cargo install marmite
       - name: Build site 🏗️
         run: marmite . site --debug
+      - name: Some redirects for compatibility post-migration
+        run: |
+          cp site/index.rss site/index.xml
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
