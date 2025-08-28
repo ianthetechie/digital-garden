@@ -173,7 +173,8 @@ I don't think you learn a language from listening to music,
 since "musical language" is so different from how anyone talks.
 Often even the pronunciation is different.
 I can sing _Dragostea din Tei_ perfectly from memory,
-but could hardly tell you what a dozen words in Romanian.
+but could hardly tell you the meaning of a dozen words in Romanian
+(fun aside: O-Zone is from Moldova, but their popular songs are in Romanian!).
 Songs lack context to enable learning.
 
 # Grammar
