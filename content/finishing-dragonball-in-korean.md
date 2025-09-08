@@ -43,11 +43,18 @@ I was _extremely_ lazy the first few years, and it was difficult to get going.
 Reading was also a bit demoralizing at first with a failure rate of something like 50-60% for a while.
 But the vocabulary and patterns were pretty repetitive so I did improve pretty quickly.
 
+I found it helpful to force myself to NOT use a dictionary after the first few volumes.
+This is how most kids learn a language anyways, and it had a few benefits for me:
+
+* It made the reading more enjoyable and easier to focus on, since I wasn't stopping multiple times per page to consult a (terrible) Korean-English dictionary.
+* It made obvious which words were important to look up, since they kept popping up...
+* But I didn't actually need to look them all up, since the meaning sometimes became more obvious from the context.
+
 The story was (IMO) significantly more engaging for the first 16 volumes,
 and the earlier chapters also had more attention to artwork detail in many respects.
 I don't regret reading all the way to the end, but it got *quite* repetitive and predictable to be honest.
 
-To complement the reading (which I find harder than watching a TV show),
+To complement the reading (and provide a reward for the slog initially),
 I also watched Dragonball and Dragonball Z Kai on [Laftel](https://laftel.net/),
 reading the chapters BEFORE watching them most of the time.
 I think that helped me focus on the text and improve my (weaker) reading.
