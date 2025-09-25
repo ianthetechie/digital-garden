@@ -13,7 +13,7 @@ and it enforces some extra rules that make _most_ data races impossible.
 But the ownership system has benefits beyond this which don't get as much press.
 
 Let's look at a fairly common design pattern: the builder.
-A buildertypically takes zero or few arguments to create.
+A builder typically takes zero or few arguments to create.
 In Rust, it's often implemented as a `struct` that implements the `Default` trait.
 Then, you progressively "chain" method invocations to ergonomically
 to specify how to build the thing you want.
