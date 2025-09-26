@@ -52,11 +52,13 @@ Maybe I'll look at a sticky setup or something...
 
 # Control positions
 
-I do not use extra buttons.
-I will not install your proprietary software.
-So, I only use the left+right click
-and the forward/back buttons (which are a plug-and-play compatible standard
-that's recognized by my web browser and many dev tools like JetBrains IDEs).
+I can only give a partial review here, since I do not use most of the extra buttons.
+Partly because I can't be bothered to configure them (most apps won't support them easily),
+and partly because I don't like installing proprietary software with low level system access for marginal benefit.
+(This is a subtoot at Logitech Options, but Elecom is not much better.)
+So, I only use the left+right click, and the forward/back buttons.
+The forward/back buttons are plug-and-play
+with my web browser and many dev tools like JetBrains IDEs.
 
 I think the HUGE positioning was a bit better for the forward/back buttons.
 The scroll and left click position are fine for my usage style.
