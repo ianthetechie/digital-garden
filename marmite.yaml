@@ -35,3 +35,6 @@ authors:
       - ["LinkedIn", "https://www.linkedin.com/in/ian-w-wagner/"]
       - ["BlueSky", "https://bsky.app/profile/ianwwagner.com"]
       - ["GitHub", "https://github.com/ianthetechie"]
+
+extra:
+  fediverse_verification: "https://fosstodon.org/@ianthetechie"
