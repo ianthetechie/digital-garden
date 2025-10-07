@@ -142,7 +142,7 @@ That piqued my interest, to say the least.
 ### That analytical thing...
 
 And now for the final buzzword in DuckDB's marketing: analytical.
-DuckDB frquently describes itself as optimized for OLAP (OnLine Analytical Processing) workloads.
+DuckDB frequently describes itself as optimized for OLAP (OnLine Analytical Processing) workloads.
 This is contrasted with OLTP (OnLine Transaction Processing).
 [Wikipedia](https://en.wikipedia.org/wiki/Online_analytical_processing) will tell you some differences
 in a lot of sweepingly broad terms, like being used for "business reporting" and read operations

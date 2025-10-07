@@ -8,7 +8,7 @@ date: 2024-11-09
 ---
 
 Today I had a rather peculiar need to search through features from TIGER
-matching specfiic attributes.
+matching specific attributes.
 These files are not CSV or JSON, but rather ESRI Shapefiles.
 Shapefiles are a binary format which have long outlived their welcome
 according to many in the industry, but they still persist today.
