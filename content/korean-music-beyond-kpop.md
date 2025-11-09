@@ -1,5 +1,5 @@
 ---
-title: Korean Music Beyond K-Pop
+title: Korean Music Beyond K-Pop Demon Hunters
 date: 2025-11-09
 tags:
 - music
