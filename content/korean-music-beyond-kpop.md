@@ -7,15 +7,15 @@ tags:
 - korea
 ---
 
-Pretty much overnight, it seems that a certain movie went from unknown to being the most-watched movie on Netflix.
+Pretty much overnight, it seems that a movie I had never even heard of became the most-watched movie ever on Netflix.
 People everywhere are now singing the songs from K-Pop Demon Hunters.
 It originally seemed more popular outside Korea
 (the first dozen or so people I heard about it from were not Korean, nor were they living here).
 But now it's all over the promotional marketing locally too.
 
-I absolutely _loving_ living here,
+I absolutely _love_ living here,
 and am immersed in many aspects of the culture,
-but I have never been a big K-pop fan.
+but have never been a big K-pop fan.
 In fact, I don't actually like _most_ pop music anywhere in the world ;)
 
 If you, like me, have different musical tastes from the mainstream,
