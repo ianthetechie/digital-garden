@@ -24,25 +24,22 @@ It's a collection of some of my favorite Korean music
 that you've probably never heard of.
 
 There is no particular order to this post, so don't take this as some sort of ranking.
-It's just a list of music and artists I think deserve more attention.
+It's just a list of music and artists I like which can broaden your horizons.
 
 # Candy and Lollipop
 
 Okay, let's kick off with some light... hip-hop?
-Bubblegum dance?
 I don't really even know how to categorize this pair of songs,
-separated by almost a decade but having a lot of similarities
-in both style and name.
-Before the current American styles of rap and hip-hop started to dominate,
-there was this fun and weird side.
+separated by almost a decade but having a lot of similarities in both style and name.
+Before the current American-influenced styles of rap and hip-hop started to dominate,
+there was this more fun and weird side.
 
 First up is boy band H.O.T. with [Candy](https://www.youtube.com/watch?v=3NUaXU1d-NY).
 This was 1996, so it's probably the oldest on my list.
 It's just light and fun.
 And very 90s... lighter side of hip hop.
 
-Over the next decade, hip-hop and rap started growing in popularity,
-and it grew up a bit.
+Over the next decade, hip-hop and rap grew even more popular.
 This next song, Lollipop, has one of the more bizarre music videos,
 and is a collaboration with more people than you'll be able to keep track of.
 Here's the [MV](https://www.youtube.com/watch?v=zIRW_elc-rY).
