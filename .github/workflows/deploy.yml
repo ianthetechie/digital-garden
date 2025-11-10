@@ -34,7 +34,7 @@ jobs:
       - name: Install marmite 🫙
         run: cargo install --git https://github.com/ianthetechie/marmite --branch fix-listing-post-capitalization
       - name: Build site 🏗️
-        run: marmite . site --debug
+        run: marmite . site
       - name: Some redirects for compatibility post-migration
         run: |
           cp site/index.rss site/index.xml
