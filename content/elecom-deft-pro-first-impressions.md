@@ -8,6 +8,8 @@ date: 2025-09-28
 I recently picked up a new trackball to replace my prematurely aging Elecom HUGE.
 Here are my first impressions after only a few hours, since there wasn't much I could find online comparing them properly.
 
+NOTE: I have an updated review after ~2 months with the unit [here](elecom-deft-pro-two-months-in.md).
+
 # Why I use a Trackball
 
 To get the obvious question out of the way first,
