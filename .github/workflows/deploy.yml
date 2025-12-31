@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install marmite 🫙
-        run: cargo install --git https://github.com/ianthetechie/marmite --branch fix-listing-post-capitalization
+        run: cargo install marmite
       - name: Build site 🏗️
         run: marmite . site
       - name: Some redirects for compatibility post-migration
