@@ -12,6 +12,13 @@ but also had more of a "life" than ever.
 I took more random days off to go chill with friends, go skiing, etc.,
 and had more time with family.
 
+It is probably also one of the darkest years in world history as a whole.
+The worst humanitarian abuses in a century continue,
+encouraged and perpetrated by what is supposed to be the "free world."
+But enough ink has already been spilled on that and you don't need to hear it from me.
+And South Korean politics show that you DO have a voice.
+So make it heard, and let's focus on the good stuff.
+
 # Travel
 
 I also traveled more than any year since COVID.
