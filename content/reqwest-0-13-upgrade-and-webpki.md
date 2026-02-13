@@ -107,5 +107,8 @@ you never know... this approach seems to be both more flexible and creates a "pi
 rather than a landmine where the trust store may not see an update for a year
 despite regular rebuilds.
 
+In other words, I think Sean made the right choice, and you should _probably_ delegate to the system,
+unless you have a particular reason to do otherwise.
+
 Hope this helps; I wrote this because I didn't understand the tradeoffs initially,
 and had some trouble parsing the existing writing on the subject.
