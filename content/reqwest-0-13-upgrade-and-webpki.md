@@ -34,7 +34,7 @@ The summary of these changes took a bit to "click" for me so here's a rephrasing
 
 The documentation and release notes also mention that `tls_certs_merge` is not always supported.
 I frankly have no idea what conditions cause this to be supported or not.
-But `tls_certs_only` apparently can't fail. ¯\_(ツ)_/¯
+But `tls_certs_only` apparently can't fail. ¯\\\_(ツ)\_/¯
 
 # What this means for containerized applications
 
