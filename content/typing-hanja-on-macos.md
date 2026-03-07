@@ -5,6 +5,7 @@ tags:
 - macos
 - i18n
 - korean
+- languages
 ---
 
 이제 漢字로 쓴 方法을 알고있다!
