@@ -10,7 +10,7 @@ jobs:
   linkChecker:
     runs-on: ubuntu-latest
     permissions:
-      issues: write # Required for peter-evans/create-issue-from-file
+      issues: write
     steps:
       - uses: actions/checkout@v5
 
@@ -20,3 +20,12 @@ jobs:
         with:
           args: '--root-dir ${{ github.workspace }}/content --config lychee.toml content'
           fail: false
+
+      - name: Create Issues
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee/out.md
+          labels: report, automated issue
+

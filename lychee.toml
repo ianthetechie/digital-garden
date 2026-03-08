@@ -1,6 +1,3 @@
-# Output format
-format = "detailed"
-
 # Enable the checking of fragments in links.
 include_fragments = true
 
