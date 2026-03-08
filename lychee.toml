@@ -1,0 +1,27 @@
+# Output format
+format = "detailed"
+
+# Enable the checking of fragments in links.
+include_fragments = true
+
+# Check links inside `<code>` and `<pre>` blocks as well as Markdown code
+# blocks.
+include_verbatim = true
+
+# Exclude URLs and mail addresses from checking. The values are treated as regular expressions
+exclude = [
+    '^https://(www\.)?linkedin\.com',                 # Does not work
+]
+
+# Exclude all private IPs from checking.
+# Equivalent to setting `exclude_private`, `exclude_link_local`, and
+# `exclude_loopback` to true.
+exclude_all_private = true
+
+# Use the Wayback Machine as web archive
+archive = "wayback"
+
+# Search and suggest link replacements for all broken links
+suggest = true
+
+[hosts."transition.fcc.gov"]
