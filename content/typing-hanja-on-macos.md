@@ -31,7 +31,7 @@ The trick is to press option+return.
 Then you'll get a menu where you can select Hanja matches
 for the previous "word" (it seems to rely on spacing, which is not always completely consistent in colloquial writing,
 but it's not too hard to get used to.)
-I found tip on Apple's [https://support.apple.com/en-gb/guide/korean-input-method/welcome/mac](website)
+I found tip on Apple's [website](https://support.apple.com/en-gb/guide/korean-input-method/welcome/mac)
 via a search.
 
 This is probably only relevant to like 2 other people on the internet, but I thought I'd spread the word
