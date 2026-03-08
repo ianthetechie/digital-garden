@@ -39,7 +39,6 @@ It's no different that using pipes at the end of the day,
 but it does simplify the invocation a bit in my opinion.
 
 After I initially published this article,
-[`@cartocalypse@norden.social` noted](https://norden.social/@cartocalypse/115717377096970864)
-that some versions of tar include the `-a`/`--auto-compress` option which will automatically determine format and compression
-based on the suffix!
+`@cartocalypse@norden.social` noted that some versions of tar include the
+`-a`/`--auto-compress` option which will automatically determine format and compression based on the suffix!
 Check your manpages for details; it appears to work on FreeBSD, macOS (which inherits the FreeBSD implementation), and GNU tar.

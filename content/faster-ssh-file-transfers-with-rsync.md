@@ -50,6 +50,6 @@ Bonus pro tip: I had (until I recently switched to nushell) over a decade of acc
 and sometimes it's hard to keep the options straight.
 Naturally my history has a few different variations on a command like `rsync`.
 Rather than searching through manpages with the equivalent of `grep`,
-I usually go to [explainshell.com](explainshell.com).
+I usually go to [explainshell.com](https://explainshell.com).
 It seems to be a frontend to the manapages that understands the various sections,
 providing a much quicker explanation of what your switches do!

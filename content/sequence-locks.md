@@ -42,4 +42,4 @@ since it's difficult to gain confidence in these sorts of things.
 This area is something I've long been fascinated with,
 but agree with him that it's not practical for most applications.
 If formal verification is interesting to you,
-Oxide & Friends did a whole [episode on it](https://oxide.computer/podcasts/oxide-and-friends/1394769).
+Oxide & Friends did a whole [episode on it](https://oxide-and-friends.transistor.fm/episodes/software-verificationpalooza).

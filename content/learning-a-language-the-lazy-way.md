@@ -227,4 +227,4 @@ Loosen up and enjoy!
 # Other resources
 
 My friend Andrew put together a list of useful resources he's found for Korean self-study.
-Check it out [on his blog](https://andrewzah.com/posts/korean-learning-useful-apps/).
+Check it out [on his blog](https://andrewzah.com/blog/korean-learning-useful-apps/).

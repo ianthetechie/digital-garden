@@ -1,13 +1,8 @@
-# Enable the checking of fragments in links.
-include_fragments = true
-
-# Check links inside `<code>` and `<pre>` blocks as well as Markdown code
-# blocks.
-include_verbatim = true
-
 # Exclude URLs and mail addresses from checking. The values are treated as regular expressions
 exclude = [
-    '^https://(www\.)?linkedin\.com',                 # Does not work
+    '^https://(www\.)?linkedin\.com', # Blocks tools like this
+    '^https://(www\.)?laftel\.net',   # Region blocked
+    '^https://transition\.fcc\.gov',  # Doesn't support HTTP/2
 ]
 
 # Exclude all private IPs from checking.
@@ -20,5 +15,3 @@ archive = "wayback"
 
 # Search and suggest link replacements for all broken links
 suggest = true
-
-[hosts."transition.fcc.gov"]

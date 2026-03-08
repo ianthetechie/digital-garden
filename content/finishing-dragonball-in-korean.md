@@ -55,7 +55,7 @@ and the earlier chapters also had more attention to artwork detail in many respe
 I don't regret reading all the way to the end, but it got *quite* repetitive and predictable to be honest.
 
 To complement the reading (and provide a reward for the slog initially),
-I also watched Dragonball and Dragonball Z Kai on [Laftel](https://laftel.net/),
+I also watched Dragonball and Dragonball Z Kai on [Laftel](https://laftel.net/) (NOTE: This may be region blocked),
 reading the chapters BEFORE watching them most of the time.
 I think that helped me focus on the text and improve my (weaker) reading.
 

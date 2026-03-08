@@ -40,7 +40,7 @@ and there are no (serious) code samples demonstrating the use of `stream_arrow`!
 
 > [!question] Down the rabbit hole...
 > Digging into the code in duckdb-rs raises even more questions,
-> since several underlying C functions, like [`duckdb_execute_prepared_streaming`](https://duckdb.org/docs/api/c/api.html#duckdb_execute_prepared_streaming)
+> since several underlying C functions, like [`duckdb_execute_prepared_streaming`](https://duckdb.org/docs/api/c/api.html)
 > are marked as deprecated.
 > Presumably, alternatives are being developed or the methods are just not stable yet.
 

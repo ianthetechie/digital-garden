@@ -37,7 +37,7 @@ This makes me really happy, and I hope this is a big step in raising the level o
 
 Not only did they have a mix of English and Korean talks,
 they handled live translation much better than any other event I’ve seen.
-They used a service called [Flitto](flitto.com).
+They used a service called [Flitto](https://flitto.com).
 Apparently it’s a Korean company,
 and they were using some AI models to do the heavy lifting.
 It had some hiccups to be sure,

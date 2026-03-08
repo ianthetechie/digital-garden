@@ -13,7 +13,7 @@ at various privacy-centric providers.
 
 It all started a few weeks ago when someone I follow on Mastodon
 (I'm very sorry I can't remember who)
-mentioned [Quad9](http://quad9.net) as a privacy-friendly DNS solution.
+mentioned [Quad9](https://quad9.net) as a privacy-friendly DNS solution.
 I think the context was that they were looking for alternatives
 to the US "big tech" vendors, like Cloudflare and Google.
 I eventually remembered it and switched by DNS a few weeks ago from 1.1.1.1,
