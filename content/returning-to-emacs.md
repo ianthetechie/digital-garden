@@ -174,13 +174,15 @@ Junie is alright for some things.
 The only really good thing I have to say about the product is that at least it let me select a GPT model.
 Anthropic models have been severely hampered in their ability to do anything useful in most codebases I work in,
 due to tiny context windows.
-That recently changed when they rolled out a 1 million token context window to certain users.
+That recently changed when Anthropic rolled out a 1 million token context window to certain users.
 
-They confusingly refer to Claude Code as "Claude Agent" and team subscriptions automatically include some monthly credits.
+JetBrains confusingly refers to Claude Code as "Claude Agent" and team subscriptions automatically include some monthly credits.
 Every single JetBrains IDE will install its own separate copy of Claude Code (yay).
-But it _is_ really just shelling out to Claude Code it seems.
+But it _is_ really just shelling out to Claude Code it seems
+(it asks for your permission to download the binary.
+Codex is the same.)
 
-So I assumed the experience and overall quality would be similar.
+Given this, I assumed the experience and overall quality would be similar.
 Well, I was VERY wrong there.
 Claude Code in the terminal is far superior for a number of reasons.
 Not just access to the new model though that helps.
@@ -190,10 +192,15 @@ So yeah, if you're going to use these tools, just use the official app.
 It makes sense; they have an incentive to push people to buy direct.
 And it so happens that Claude Code fits comfortably in my Emacs environment.
 
-Also, LLMs generally are excellent at recommending Emacs packages and config tweaks.
+More directly relevant to this post,
+LLMs (any of them really) are excellent at recommending Emacs packages and config tweaks.
 So it's never been easier to give it a try.
 I've spent something like 2-3x longer writing this post than I did configuring Emacs.
 (And yes, before you ask, this post is 100% hand-written.)
+My basic flow was to work, get annoyed (thats pretty easy for me),
+and describe my problem to ChatGPT or Claude.
+I am nowhere near the hours I budgeted for config fiddling.
+That surprised me!
 
 ## VCS integration
 
