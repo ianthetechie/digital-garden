@@ -188,6 +188,11 @@ So yeah, if you're going to use these tools, just use the official app.
 It makes sense; they have an incentive to push people to buy direct.
 And it so happens that Claude Code fits comfortably in my Emacs environment.
 
+Also, LLMs generally are excellent at recommending Emacs packages and config tweaks.
+So it's never been easier to give it a try.
+I've spent something like 2-3x longer writing this post than I did configuring Emacs.
+(And yes, before you ask, this post is 100% hand-written.)
+
 ## VCS integration
 
 While I'm no stranger to hacking around with nothing more than a console,
