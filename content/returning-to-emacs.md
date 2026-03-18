@@ -147,7 +147,7 @@ and Xorg, macOS, etc. may number the buttons differently!
 
 The emacs `shell` mode is terrible.
 It's particularly unusable if you're running any sort of TUI application.
-I friend recommended [`eat`](https://codeberg.org/akib/emacs-eat) as an alternative.
+A friend recommended [`eat`](https://codeberg.org/akib/emacs-eat) as an alternative.
 This worked pretty well out of the box with most things,
 but when I ran `cargo nextest` for the first time,
 I was shocked at how slow it was.
