@@ -8,7 +8,7 @@ tags:
 - languages
 ---
 
-이제 漢字로 쓴 方法을 알고있다!
+이제 漢字 쓰는 方法을 알게 되었다!
 
 I was today years old when I finally figured out how to type Hanja (characters from China that were historically used to write Korean).
 It struck me as very strange that this didn't seem possible in any of the obvious input methods.
