@@ -87,7 +87,7 @@ This isn't the case anymore, and most of the languages I use that would benefit 
 have a great one available.
 Things have improved a lot, particularly in terms of Emacs integrations,
 over the past decade!
-`eglot` is now bundled with Emacs,
+[`eglot`](https://www.gnu.org/software/emacs/manual/html_node/eglot/Eglot-Features.html) is now bundled with Emacs,
 so you don't even need to go out of your way to get some funky packages hooked up
 (like I had to with some flycheck plugin for Haskell back in the day).
 
@@ -102,7 +102,7 @@ I was happy to find that `eglot-rename` "just worked".
 I'm used to hovering my mouse over any bit of code, waiting a few seconds,
 and being greeted by a docs popover.
 This is now possible in Emacs too with `eldoc` + your LSP.
-I added the `eldoc-box` plugin and configured it to my liking.
+I added the [`eldoc-box`](https://github.com/casouri/eldoc-box) plugin and configured it to my liking.
 
 ### Quick fix actions work too!
 
@@ -134,7 +134,7 @@ so I abandoned it.
 I opted instead to simple backward and forward navigation.
 It works alright.
 
-```elisp
+```lisp
 (global-set-key (kbd "<mouse-3>") #'previous-buffer)
 (global-set-key (kbd "<mouse-4>") #'next-buffer)
 ```
@@ -147,14 +147,16 @@ and Xorg, macOS, etc. may number the buttons differently!
 
 The emacs `shell` mode is terrible.
 It's particularly unusable if you're running any sort of TUI application.
-I friend recommended `eat` as an alternative.
+I friend recommended [`eat`](https://codeberg.org/akib/emacs-eat) as an alternative.
 This worked pretty well out of the box with most things,
 but when I ran `cargo nextest` for the first time,
 I was shocked at how slow it was.
 My test suite which normally runs in under a second took over 30!
 Yikes.
+I believe the slowness is because it's implemented in elisp,
+which is still pretty slow even when native compilation is enabled.
 
-Another Emacs user recommended I try out `vterm`, so I did.
+Another Emacs user recommended I try out [`vterm`](https://github.com/akermu/emacs-libvterm), so I did.
 Hallelujah!
 It's no iTerm 2, and it does have a few quirks,
 but it's quite usable and MUCH faster.
@@ -204,11 +206,11 @@ but for now I'm very happy with Sublime Merge.
 But one thing I MUST have in my editor is a "gutter" view of lines that are new/changed,
 and a way to get a quick inline diff.
 JetBrains had a great UX for this which I used daily.
-And for Emacs, I found something just as great: `diff-hl`.
+And for Emacs, I found something just as great: [`diff-hl`](https://github.com/dgutov/diff-hl).
 
 My config for this is very simple:
 
-```elisp
+```lisp
 (unless (package-installed-p 'diff-hl)
   (package-install 'diff-hl))
 (use-package diff-hl
@@ -231,14 +233,14 @@ I _do_ miss that.
 ## Run configurations
 
 The final pleasant surprise is that I don't miss JetBrains run configurations as much as I expected.
-I instead switch to putting a `justfile` in my repo and populating that with my run configurations
+I instead switch to putting a [`justfile`](https://just.systems/man/en/introduction.html) in my repo and populating that with my run configurations
 (much of the software I work on has half a dozen switches which vary by environment).
 This also has the side effect of cleaning up some of my CI configuration (`just` run the same thing!)
 and also serves as useful documentation to LLMs.
 
 ## Spell checking
 
-I have `typos` configured for most of my projects in CI,
+I have [`typos`](https://github.com/crate-ci/typos) configured for most of my projects in CI,
 but it drives me nuts when an editor doesn't flag typos for me.
 JetBrains did this well.
 Emacs has nothing out of the box (Zed also annoyingly doesn't ship with anything, which is really confusing to me).
