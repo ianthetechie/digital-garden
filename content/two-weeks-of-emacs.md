@@ -92,8 +92,9 @@ I'm also frankly shocked at how little CPU I'm using relative to previous norms 
 
 Next up I'll probably try (in no particular order):
 
-- Magit / Majitsu; I actually love Sublime Merge, but one less window switch, especially if I can get a view of the current project easily
-  without needing to use Sublime's terrible search interface over 100+ repos.
+- Magit / Majitsu; I actually love Sublime Merge, but wouldn't mind one less context switch.
+  Especially if I can get a view of the current project easily based on context.
+  Sublime's search interface is terrible when you have hundreds of repos.
 - Chezmoi for dotfile sync + see what breaks on my desktop (FreeBSD).
 - More adventures with TRAMP. I used this extensively in the early '00s but have mostly been doing local dev this time around.
   But I see emacs having a lot of potential for remote dev with TRAMP so I'll give that a shot for some stuff over the next few weeks.
